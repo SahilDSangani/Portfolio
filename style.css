@@ -9,36 +9,85 @@
 body {
   font-family: Arial, sans-serif;
   line-height: 1.6;
-  padding: 20px;
   background-color: #f8f8f8;
+  color: #333;
 }
 
-/* Header */
-header {
-  text-align: center;
-  margin-bottom: 40px;
+/* Navigation Bar */
+nav ul {
+  display: flex;              /* Make items horizontal */
+  list-style: none;           /* Remove bullets */
+  justify-content: center;    /* Center menu */
+  background-color: #333;     /* Dark background */
+  padding: 10px 0;
+}
+
+nav ul li {
+  margin: 0 15px;             /* Space between items */
+}
+
+nav ul li a {
+  color: white;               /* White text */
+  text-decoration: none;      /* Remove underline */
+  font-weight: bold;
+}
+
+nav ul li a:hover {
+  text-decoration: underline; /* Hover effect */
 }
 
 /* Sections */
 section {
-  margin-bottom: 40px;
+  max-width: 800px;          /* Limit content width */
+  margin: 40px auto;         /* Center section with spacing */
+  padding: 30px;
+  background-color: #fff;    /* White background for contrast */
+  border-radius: 8px;        /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Light shadow */
 }
 
-/* Projects */
+/* Headings */
+h1, h2, h3 {
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* Paragraphs */
+p, li {
+  margin-bottom: 10px;
+}
+
+/* Project Cards (for projects or learning pages) */
 .project-card {
-  background-color: #fff;
+  background-color: #f0f0f0;
   padding: 20px;
   margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 /* Links */
 a {
   color: #0073e6;
-  text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column; /* Stack menu on small screens */
+    padding: 0;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  section {
+    padding: 20px;
+    margin: 20px;
+  }
 }
