@@ -966,3 +966,16 @@
         <div class="container">
             <p>&copy; 2025 Sahil Sangani. All rights reserved.</p>
             <p style="margin-top: 0.5rem; font-size: 0.9rem;">US Citizen | Chicago, IL | Willing to Relocate Nationwide</p>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const cards = document.querySelectorAll(".skill-card");
+
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      cards.forEach(c => c !== card && c.classList.remove("expanded"));
+      card.classList.toggle("expanded");
+    });
+  });
+});
+</script>
