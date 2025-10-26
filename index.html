@@ -1,33 +1,962 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Me - Sahil Sangani</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahil Sangani - Data Science Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease;
+            margin-bottom: 1rem;
+        }
+
+        .header-subtitle {
+            font-size: 1rem;
+            opacity: 0.85;
+        }
+
+        .contact-links {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-links a:hover {
+            opacity: 0.7;
+        }
+
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        nav li {
+            margin: 0 1.5rem;
+        }
+
+        nav a {
+            color: #1e3a8a;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #3b82f6;
+        }
+
+        section {
+            padding: 4rem 0;
+            background: white;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #1e3a8a;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .education-box {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #3b82f6;
+            margin-top: 2rem;
+        }
+
+        .education-box h3 {
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-details {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            color: #64748b;
+        }
+
+        .coursework {
+            margin-top: 1rem;
+        }
+
+        .coursework strong {
+            color: #1e3a8a;
+        }
+
+        /* Skills Section - New Expandable Design */
+        .skills-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .skill-category-header {
+            color: #1e3a8a;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: grid;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .skill-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .skill-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+        }
+
+        .skill-card.expanded {
+            border-color: #3b82f6;
+            background: white;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .skill-title h3 {
+            color: #1e3a8a;
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        .proficiency-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .proficiency-expert {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .proficiency-advanced {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .proficiency-intermediate {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .proficiency-learning {
+            background: #f3e8ff;
+            color: #6b21a8;
+        }
+
+        .expand-icon {
+            font-size: 1.5rem;
+            color: #3b82f6;
+            transition: transform 0.3s;
+        }
+
+        .skill-card.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .skill-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .skill-card.expanded .skill-details {
+            max-height: 800px;
+        }
+
+        .skill-content {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .skill-content p {
+            color: #475569;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .skill-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .highlight-tag {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+
+        .learning-path {
+            background: #fef3c7;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 3px solid #f59e0b;
+        }
+
+        .learning-path strong {
+            color: #92400e;
+        }
+
+        /* Projects Section - Enhanced */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.2);
+            border-color: #3b82f6;
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .project-header h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;
+        }
+
+        .project-metrics {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content p {
+            color: #475569;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .project-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+        }
+
+        .project-content li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #475569;
+        }
+
+        .project-content li:before {
+            content: "▸";
+            color: #3b82f6;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-badge {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            font-size: 0.85rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.7rem 1.5rem;
+            background: #1e3a8a;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background: #3b82f6;
+        }
+
+        .experience-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .experience-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .experience-header h3 {
+            color: #1e3a8a;
+            font-size: 1.3rem;
+        }
+
+        .experience-date {
+            color: #64748b;
+            font-style: italic;
+        }
+
+        .experience-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-card li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-card li:before {
+            content: "•";
+            color: #3b82f6;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            background: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav li {
+                margin: 0.5rem 0;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <h1>Sahil Sangani</h1>
+            <p>Data Science Student | Statistics & Computer Science</p>
+            <p class="header-subtitle">University of Illinois Urbana-Champaign | GPA: 3.8/4.0 | Expected Graduation: May 2027</p>
+            <div class="contact-links">
+                <a href="mailto:sahildsangani@gmail.com">📧 sahildsangani@gmail.com</a>
+                <a href="tel:2244313477">📱 (224) 431-3477</a>
+                <a href="https://linkedin.com/in/sahildsangani" target="_blank">💼 LinkedIn</a>
+                <a href="https://github.com/SahilDSangani" target="_blank">💻 GitHub</a>
+            </div>
+        </div>
+    </header>
 
-  <!-- Navigation Bar -->
-  <nav>
-    <ul>
-      <li><a href="index.html">About Me</a></li>
-      <li><a href="education.html">Education</a></li>
-      <li><a href="skills.html">Skills</a></li>
-      <li><a href="learning.html">Learning</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="calendar.html">Calendar</a></li>
-    </ul>
-  </nav>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+        </ul>
+    </nav>
 
-  <!-- Main Content -->
-  <main>
-    <section id="about">
-      <h1>About Me</h1>
-      <!-- Add your introduction here -->
-    </section>
-  </main>
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I'm a Statistics major with minors in Computer Science and Data Science at the University of Illinois Urbana-Champaign, passionate about leveraging data to solve real-world problems. With a strong foundation in statistical modeling, machine learning, and data visualization, I'm actively seeking data science internship opportunities where I can apply my analytical skills and continue learning.</p>
+                
+                <p>My academic journey has equipped me with hands-on experience in building predictive models, conducting exploratory data analysis, and deriving actionable insights from complex datasets. I'm particularly interested in applying statistical methods and machine learning techniques to domains like healthcare, sports analytics, and consumer behavior.</p>
+                
+                <p>As an active member of the Illinois Data Science Club and NeuroTech Club, I'm constantly expanding my knowledge and collaborating with peers on innovative projects. I'm eager to contribute to a forward-thinking team while gaining practical industry experience.</p>
 
-  <script src="script.js"></script>
-</body>
-</html>
+                <div class="education-box">
+                    <h3>University of Illinois Urbana-Champaign</h3>
+                    <div class="education-details">
+                        <span><strong>B.S. in Statistics</strong> | Minors: Computer Science, Data Science</span>
+                        <span><strong>GPA:</strong> 3.8/4.0</span>
+                        <span><strong>Expected:</strong> May 2027</span>
+                    </div>
+                    <div class="coursework">
+                        <strong>Relevant Coursework:</strong> Statistical Modeling, Modeling and Learning in Data Science, Database Systems, Intro to Data Mining, Abstract Linear Algebra, Statistical Programming Methods
+                    </div>
+                    <div style="margin-top: 1rem;">
+                        <strong style="color: #1e3a8a;">Organizations:</strong> Illinois Data Science Club, NeuroTech Club
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <h3 class="skill-category-header">💻 Programming Languages</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-title">
+                                <h3>Python</h3>
+                                <span class="proficiency-badge proficiency-advanced">Advanced</span>
+                            </div>
+                            <span class="expand-icon">▼</span>
+                        </div>
+                        <div class="skill-details">
+                            <div class="skill-content">
+                                <p>My primary language for data science and programming. I've developed strong proficiency through extensive coursework, personal projects, and structured learning programs.</p>
+                                
+                                <div class="learning-path">
+                                    <strong>Learning Path:</strong> Coursework → Personal Projects → CodePath DSA Advanced Certificate
+                                </div>
+                                
+                                <p><strong>Experience:</strong> I use Python for everything from exploratory data analysis to building production-ready machine learning models. Comfortable with data manipulation, statistical analysis, machine learning pipelines, and algorithm implementation.</p>
+                                
+                                <p><strong>Key Libraries:</strong> Pandas (data manipulation), NumPy (numerical computing), Scikit-learn (machine learning), PyTorch (deep learning), Statsmodels (statistical modeling), Seaborn & Matplotlib (visualization)</p>
+                                
+                                <div class="skill-highlights">
+                                    <span class="highlight-tag">Data Analysis</span>
+                                    <span class="highlight-tag">Machine Learning</span>
+                                    <span class="highlight-tag">DSA (Advanced)</span>
+                                    <span class="highlight-tag">Statistical Computing</span>
+                                    <span class="highlight-tag">Model Development</span>
+                                    <span class="highlight-tag">CodePath Certified</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-title">
+                                <h3>Java</h3>
+                                <span class="proficiency-badge proficiency-advanced">Advanced</span>
+                            </div>
+                            <span class="expand-icon">▼</span>
+                        </div>
+                        <div class="skill-details">
+                            <div class="skill-content">
+                                <p>Java was my first programming language and remains a strong foundation of my technical skills. I have extensive experience from both academic work and practical application.</p>
+                                
+                                <div class="learning-path">
+                                    <strong>Learning Path:</strong> First Programming Language → Coursework → Android Development → 3 Semesters of Tutoring
+                                </div>
+                                
+                                <p><strong>Experience:</strong> Developed an Android app using Android Studio, demonstrating mobile development capabilities. As an Assistant Tutor for three semesters at UIUC, I taught Java programming to students with diverse backgrounds, which deepened my understanding of core concepts like OOP, data structures, and software design patterns. This teaching experience honed my ability to explain complex technical concepts clearly.</p>
+                                
+                                <div class="skill-highlights">
+                                    <span class="highlight-tag">Object-Oriented Programming</span>
+                                    <span class="highlight-tag">Android Studio</span>
+                                    <span class="highlight-tag">Mobile Development</span>
+                                    <span class="highlight-tag">Teaching Experience</span>
+                                    <span class="highlight-tag">Data Structures</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-title">
+                                <h3>C++</h3>
+                                <span class="proficiency-badge proficiency-intermediate">Intermediate</span>
+                            </div>
+                            <span class="expand-icon">▼</span>
+                        </div>
+                        <div class="skill-details">
+                            <div class="skill-content">
+                                <p>Learned C++ through rigorous coursework focused on data structures and algorithms. Have developed multiple projects demonstrating practical application of systems programming concepts.</p>
+                                
+                                <div class="learning-path">
+                                    <strong>Learning Path:</strong> DSA Coursework → Multiple C++ Projects
+                                </div>
+                                
+                                <p><strong>Experience:</strong> Completed a comprehensive Data Structures and Algorithms course taught in C++, gaining hands-on experience with memory management, pointers, templates, and STL containers. Built several projects that showcase algorithmic thinking and efficient code implementation. Comfortable with low-level programming concepts and performance optimization.</p>
+                                
+                                <div class="skill-highlights">
+                                    <span class="highlight-tag">Data Structures</span>
+                                    <span class="highlight-tag">Algorithms</span>
+                                    <span class="highlight-tag">Memory Management</span>
+                                    <span class="highlight-tag">STL</span>
+                                    <span class="highlight-tag">Systems Programming</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-title">
+                                <h3>R</h3>
+                                <span class="proficiency-badge proficiency-intermediate">Intermediate</span>
+                            </div>
+                            <span class="expand-icon">▼</span>
+                        </div>
+                        <div class="skill-details">
+                            <div class="skill-content">
+                                <p>Learned R through statistics coursework and have developed strong skills in statistical analysis and data visualization. While I prefer Python for most data science tasks, I particularly appreciate R's visualization capabilities.</p>
+                                
+                                <div class="learning-path">
+                                    <strong>Learning Path:</strong> Statistics Coursework → R Markdown for Assignments → Advanced Visualization
+                                </div>
+                                
+                                <p><strong>Experience:</strong> Proficient in using ggplot2 for creating publication-quality visualizations. Extensive experience with R Markdown for creating reproducible research documents, which also helped me become proficient in LaTeX. Later expanded to Quarto for working with .ipynb files, enabling seamless integration between R and Python workflows.</p>
+                                
+                                <p><strong>Key Libraries:</strong> tidyverse (data manipulation), ggplot2 (visualization), statistical modeling packages</p>
+                                
+                                <div class="skill-highlights">
+                                    <span class="highlight-tag">ggplot2 Visualizations</span>
+                                    <span class="highlight-tag">R Markdown</span>
+                                    <span class="highlight-tag">Statistical Analysis</span>
+                                    <span class="highlight-tag">LaTeX</span>
+                                    <span class="highlight-tag">Quarto</span>
+                                    <span class="highlight-tag">tidyverse</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-title">
+                                <h3>SQL</h3>
+                                <span class="proficiency-badge proficiency-intermediate">Intermediate</span>
+                            </div>
+                            <span class="expand-icon">▼</span>
+                        </div>
+                        <div class="skill-details">
+                            <div class="skill-content">
+                                <p>Self-taught SQL through online platforms and practical problem-solving. Comfortable with database querying, data manipulation, and writing efficient queries for data extraction and analysis.</p>
+                                
+                                <div class="learning-path">
+                                    <strong>Learning Path:</strong> Codecademy SQL Course → HackerRank Practice Problems → Real Project Applications
+                                </div>
+                                
+                                <p><strong>Experience:</strong> Proficient in writing complex SELECT queries, JOINs, subqueries, and aggregate functions. Experience with database design concepts and query optimization. Continuously practicing through HackerRank challenges to strengthen problem-solving skills.</p>
+                                
+                                <div class="skill-highlights">
+                                    <span class="highlight-tag">Complex Queries</span>
+                                    <span class="highlight-tag">JOINs & Subqueries</span>
+                                    <span class="highlight-tag">Data Extraction</span>
+                                    <span class="highlight-tag">Codecademy</span>
+                                    <span class="highlight-tag">HackerRank</span>
+                                    <span class="highlight-tag">Self-Taught</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-title">
+                                <h3>SAS</h3>
+                                <span class="proficiency-badge proficiency-learning">Learning</span>
+                            </div>
+                            <span class="expand-icon">▼</span>
+                        </div>
+                        <div class="skill-details">
+                            <div class="skill-content">
+                                <p>Currently preparing to learn SAS as part of upcoming coursework next semester. Eager to expand my statistical programming toolkit with industry-standard software.</p>
+                                
+                                <div class="learning-path">
+                                    <strong>Learning Path:</strong> Upcoming Coursework (Spring 2025)
+                                </div>
+                                
+                                <p><strong>Anticipated Focus:</strong> Statistical analysis, data management, and reporting using SAS programming. Looking forward to applying SAS in real-world data analytics scenarios and adding enterprise-level statistical software to my skill set.</p>
+                                
+                                <div class="skill-highlights">
+                                    <span class="highlight-tag">Upcoming Coursework</span>
+                                    <span class="highlight-tag">Statistical Software</span>
+                                    <span class="highlight-tag">Data Analytics</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 class="skill-category-header" style="margin-top: 3rem;">🛠️ Tools & Technologies</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-title">
+                                <h3>Tableau</h3>
+                                <span class="proficiency-badge proficiency-intermediate">Intermediate</span>
+                            </div>
+                            <span class="expand-icon">▼</span>
+                        </div>
+                        <div class="skill-details">
+                            <div class="skill-content">
+                                <p>Business intelligence and data visualization tool that I learned through peer mentorship.</p>
+                                
+                                <div class="learning-path">
+                                    <strong>Learning Path:</strong> Learned from a Friend → Self-Practice
+                                </div>
+                                
+                                <p><strong>Experience:</strong> Familiar with creating interactive dashboards and visualizations. Currently building practical experience and planning future projects to showcase Tableau capabilities in presenting data insights to non-technical audiences.</p>
+                                
+                                <div class="skill-highlights">
+                                    <span class="highlight-tag">Dashboards</span>
+                                    <span class="highlight-tag">Data Visualization</span>
+                                    <span class="highlight-tag">Business Intelligence</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-header">
+                            <div class="skill-title">
+                                <h3>Development Tools</h3>
+                                <span class="proficiency-badge proficiency-advanced">Advanced</span>
+                            </div>
+                            <span class="expand-icon">▼</span>
+                        </div>
+                        <div class="skill-details">
+                            <div class="skill-content">
+                                <p>Proficient with essential development tools learned through coursework and hands-on project work.</p>
+                                
+                                <div class="learning-path">
+                                    <strong>Learning Path:</strong> Coursework → Project Applications → Daily Use
+                                </div>
+                                
+                                <p><strong>Tools:</strong> Git/GitHub (version control), Jupyter Notebook (interactive development), VS Code (primary IDE), R Studio (R development), Docker (containerization), Excel (data analysis)</p>
+                                
+                                <p><strong>Experience:</strong> Comfortable with version control workflows, collaborative coding, and using modern IDEs for efficient development. Regular use of these tools across multiple projects has made them integral to my development process.</p>
+                                
+                                <div class="skill-highlights">
+                                    <span class="highlight-tag">Git & GitHub</span>
+                                    <span class="highlight-tag">Jupyter Notebook</span>
+                                    <span class="highlight-tag">VS Code</span>
+                                    <span class="highlight-tag">Docker</span>
+                                    <span class="highlight-tag">Excel</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="text-align: center; color: #64748b; margin-top: 2rem; font-style: italic;">
+                    Click on any skill card to learn more about my experience and learning journey!
+                </p>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Student Depression Risk Prediction</h3>
+                        <div class="project-metrics">🎯 AUC: 0.936 | Team Collaboration</div>
+                    </div>
+                    <div class="project-content">
+                        <p>A machine learning project focused on mental health risk assessment for students, combining statistical analysis with predictive modeling to identify at-risk individuals.</p>
+                        
+                        <strong style="color: #1e3a8a;">Key Achievements:</strong>
+                        <ul>
+                            <li>Achieved exceptional model performance with AUC of 0.936, indicating strong discriminative ability between risk categories</li>
+                            <li>Performed comprehensive feature engineering on student survey data, transforming raw responses into meaningful predictors including sleep patterns, financial stress indicators, and academic pressure metrics</li>
+                            <li>Conducted in-depth coefficient analysis to identify the most significant risk factors, providing actionable insights for intervention strategies</li>
+                            <li>Collaborated effectively in a team of four, coordinating data preprocessing, model training, and validation tasks</li>
+                            <li>Designed model with real-world application potential for school counseling services and student support programs</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Scikit-learn</span>
+                            <span class="tech-badge">Logistic Regression</span>
+                            <span class="tech-badge">Pandas</span>
+                            <span class="tech-badge">Feature Engineering</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Real-Time MLB Pitch Classification</h3>
+                        <div class="project-metrics">⚾ 98.6% Accuracy | Sports Analytics</div>
+                    </div>
+                    <div class="project-content">
+                        <p>An advanced sports analytics project that leverages Statcast data to classify baseball pitches in real-time, demonstrating the intersection of machine learning and sports technology.</p>
+                        
+                        <strong style="color: #1e3a8a;">Key Achievements:</strong>
+                        <ul>
+                            <li>Developed highly accurate pitch classification model achieving 98.6% accuracy using K-Nearest Neighbors algorithm on Kevin Gausman's Statcast data</li>
+                            <li>Engineered sophisticated features including release speed, spin rate (rpm), horizontal and vertical movement, and release point coordinates to capture pitch characteristics</li>
+                            <li>Created comprehensive data visualizations using Seaborn to demonstrate pitch separability and model decision boundaries, enhancing interpretability for baseball analysts</li>
+                            <li>Built modular, scalable framework that can be adapted for any MLB pitcher by simply substituting the dataset, making it practical for broadcast integration</li>
+                            <li>Optimized hyperparameters through cross-validation to ensure model generalization across different game situations</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">K-Nearest Neighbors</span>
+                            <span class="tech-badge">Seaborn</span>
+                            <span class="tech-badge">Statcast API</span>
+                            <span class="tech-badge">Sports Analytics</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Consumer Spending Predictions</h3>
+                        <div class="project-metrics">💳 R² = 0.76 | UIUC Datathon Winner</div>
+                    </div>
+                    <div class="project-content">
+                        <p>A competitive datathon project analyzing real-world financial data to predict customer spending patterns, providing insights into consumer behavior and credit card usage.</p>
+                        
+                        <strong style="color: #1e3a8a;">Key Achievements:</strong>
+                        <ul>
+                            <li>Predicted Q4 spending for Synchrony Financial customers using historical transaction data and customer demographics</li>
+                            <li>Implemented LASSO regression model achieving R² score of 0.76, balancing prediction accuracy with model interpretability through L1 regularization</li>
+                            <li>Performed extensive exploratory data analysis to uncover spending patterns, seasonal trends, and customer segmentation insights</li>
+                            <li>Collaborated in a competitive team environment, dividing tasks efficiently and integrating different modeling approaches</li>
+                            <li>Gained practical experience working with real banking data, understanding credit card spending behaviors and financial industry metrics</li>
+                            <li>Presented findings to industry professionals, demonstrating ability to communicate technical results to business stakeholders</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">LASSO Regression</span>
+                            <span class="tech-badge">Jupyter Notebook</span>
+                            <span class="tech-badge">Financial Data</span>
+                            <span class="tech-badge">EDA</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Exploratory Data & Regression Projects</h3>
+                        <div class="project-metrics">📊 R² = 0.83 | Multi-Domain Analysis</div>
+                    </div>
+                    <div class="project-content">
+                        <p>A collection of exploratory data analysis and regression modeling projects across different domains, showcasing versatility in data science techniques and problem-solving approaches.</p>
+                        
+                        <strong style="color: #1e3a8a;">Key Achievements:</strong>
+                        <ul>
+                            <li>Analyzed college tuition dataset to understand pricing patterns, exploring relationships between institution characteristics, location, and tuition costs for in-state vs. out-of-state students</li>
+                            <li>Conducted used car price analysis, investigating how factors like mileage, age, brand, and features influence market value</li>
+                            <li>Created publication-quality visualizations using Matplotlib and Seaborn, effectively communicating insights through scatter plots, distribution plots, and correlation heatmaps</li>
+                            <li>Built interpretable linear regression models with strong predictive performance (R² = 0.83), focusing on coefficient interpretation and statistical significance</li>
+                            <li>Practiced comprehensive data preprocessing including handling missing values, outlier detection, feature scaling, and categorical encoding</li>
+                            <li>Emphasized model evaluation using multiple metrics: R², RMSE, MAE, and residual analysis to ensure model assumptions were met</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Pandas</span>
+                            <span class="tech-badge">Matplotlib</span>
+                            <span class="tech-badge">Linear Regression</span>
+                            <span class="tech-badge">EDA</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-section">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Assistant Tutor</h3>
+                            <p style="color: #64748b;">University of Illinois Urbana-Champaign | Champaign, IL</p>
+                        </div>
+                        <div class="experience-date">Jan 2024 – May 2025</div>
+                    </div>
+                    <ul>
+                        <li>Delivered Java programming lessons, simplifying complex concepts for students with diverse technical backgrounds</li>
+                        <li>Collaborated with professors, tutors, and students to enhance communication across technical and non-technical audiences</li>
+                        <li>Managed online platforms, facilitated peer programming sessions, and supervised a four-week machine project</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sahil Sangani. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem;">US Citizen | Chicago, IL | Willing to Relocate Nationwide</p>
