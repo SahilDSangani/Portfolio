@@ -4,534 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sahil Sangani - Data Science Portfolio</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f4f4f4;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            animation: fadeInDown 1s ease;
-        }
-
-        header p {
-            font-size: 1.3rem;
-            opacity: 0.95;
-            animation: fadeInUp 1s ease;
-            margin-bottom: 1rem;
-        }
-
-        .header-subtitle {
-            font-size: 1rem;
-            opacity: 0.85;
-        }
-
-        .contact-links {
-            margin-top: 1.5rem;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
-            color: white;
-            text-decoration: none;
-            transition: opacity 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .contact-links a:hover {
-            opacity: 0.7;
-        }
-
-        nav {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            padding: 1rem 0;
-        }
-
-        nav li {
-            margin: 0 1.5rem;
-        }
-
-        nav a {
-            color: #1e3a8a;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #3b82f6;
-        }
-
-        section {
-            padding: 4rem 0;
-            background: white;
-            margin: 2rem 0;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            color: #1e3a8a;
-        }
-
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .about-content p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .education-box {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid #3b82f6;
-            margin-top: 2rem;
-        }
-
-        .education-box h3 {
-            color: #1e3a8a;
-            margin-bottom: 0.5rem;
-        }
-
-        .education-details {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-            color: #64748b;
-        }
-
-        .coursework {
-            margin-top: 1rem;
-        }
-
-        .coursework strong {
-            color: #1e3a8a;
-        }
-
-        /* Skills Section - New Expandable Design */
-        .skills-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .skill-category-header {
-            color: #1e3a8a;
-            margin-bottom: 2rem;
-            font-size: 1.8rem;
-            text-align: center;
-        }
-
-        .skills-grid {
-            display: grid;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .skill-card {
-            background: #f8fafc;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            padding: 1.5rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .skill-card:hover {
-            border-color: #3b82f6;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
-        }
-
-        .skill-card.expanded {
-            border-color: #3b82f6;
-            background: white;
-        }
-
-        .skill-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .skill-title {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .skill-title h3 {
-            color: #1e3a8a;
-            font-size: 1.3rem;
-            margin: 0;
-        }
-
-        .proficiency-badge {
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .proficiency-expert {
-            background: #dcfce7;
-            color: #166534;
-        }
-
-        .proficiency-advanced {
-            background: #dbeafe;
-            color: #1e40af;
-        }
-
-        .proficiency-intermediate {
-            background: #fef3c7;
-            color: #92400e;
-        }
-
-        .proficiency-beginner {
-            background: #fef3c9;
-            color: #f39c12
-        }
-
-        .proficiency-learning {
-            background: #f3e8ff;
-            color: #6b21a8;
-        }
-
-        .expand-icon {
-            font-size: 1.5rem;
-            color: #3b82f6;
-            transition: transform 0.3s;
-        }
-
-        .skill-card.expanded .expand-icon {
-            transform: rotate(180deg);
-        }
-
-        .skill-details {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .skill-card.expanded .skill-details {
-            max-height: 800px;
-        }
-
-        .skill-content {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 2px solid #e2e8f0;
-        }
-
-        .skill-content p {
-            color: #475569;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .skill-highlights {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .highlight-tag {
-            background: #dbeafe;
-            color: #1e40af;
-            padding: 0.4rem 0.8rem;
-            border-radius: 5px;
-            font-size: 0.9rem;
-        }
-
-        .learning-path {
-            background: #fef3c7;
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1rem;
-            border-left: 3px solid #f59e0b;
-        }
-
-        .learning-path strong {
-            color: #92400e;
-        }
-
-        /* Projects Section - Enhanced */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .project-card {
-            background: white;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(30, 58, 138, 0.2);
-            border-color: #3b82f6;
-        }
-
-        .project-header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            color: white;
-            padding: 1.5rem;
-        }
-
-        .project-header h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.4rem;
-        }
-
-        .project-metrics {
-            font-size: 0.9rem;
-            opacity: 0.9;
-            margin-top: 0.5rem;
-        }
-
-        .project-content {
-            padding: 1.5rem;
-        }
-
-        .project-content p {
-            color: #475569;
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-
-        .project-content ul {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 1rem;
-        }
-
-        .project-content li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
-            position: relative;
-            color: #475569;
-        }
-
-        .project-content li:before {
-            content: "▸";
-            color: #3b82f6;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .tech-badge {
-            background: #f1f5f9;
-            color: #475569;
-            padding: 0.3rem 0.8rem;
-            border-radius: 5px;
-            font-size: 0.85rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0.7rem 1.5rem;
-            background: #1e3a8a;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s;
-            margin-top: 1rem;
-        }
-
-        .btn:hover {
-            background: #3b82f6;
-        }
-
-        .experience-section {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .experience-card {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 10px;
-            border-left: 4px solid #3b82f6;
-        }
-
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .experience-header h3 {
-            color: #1e3a8a;
-            font-size: 1.3rem;
-        }
-
-        .experience-date {
-            color: #64748b;
-            font-style: italic;
-        }
-
-        .experience-card ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .experience-card li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .experience-card li:before {
-            content: "•";
-            color: #3b82f6;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        footer {
-            background: #1e293b;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 2rem;
-        }
-
-        footer p {
-            opacity: 0.8;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            header p {
-                font-size: 1rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav li {
-                margin: 0.5rem 0;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .experience-header {
-                flex-direction: column;
-            }
-
-            .contact-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
-        }
-    </style>
+    <!--link CSS-->
+    <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
     <header>
         <div class="container">
             <h1>Sahil Sangani</h1>
             <p>Statistics and Data Science Student</p>
-            <p class="header-subtitle">University of Illinois Urbana-Champaign · US Citizen · Expected Graduation: May 2027
-            </p>
-            <p class="header-subtitle">
-              Chicago, IL · Willing to Relocate Nationwide
-            </p>
+            <p class="header-subtitle">University of Illinois Urbana-Champaign · US Citizen · Expected Graduation: May 2027</p>
+            <p class="header-subtitle">Chicago, IL · Willing to Relocate Nationwide</p>
             <div class="contact-links">
                 <a href="mailto:sahildsangani@gmail.com">📧 sahildsangani@gmail.com</a>
                 <a href="tel:2244313477">📱 (224) 431-3477</a>
@@ -540,15 +23,14 @@
             </div>
         </div>
     </header>
-
-
-
+    
     <nav>
         <ul>
             <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
             <li><a href="#experience">Experience</a></li>
+            <li><a href="#extracurricular">Leadership</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
         </ul>
     </nav>
 
@@ -558,22 +40,276 @@
             <div class="about-content">
                 <p>I'm a Statistics major with minors in Computer Science and Data Science at the University of Illinois Urbana-Champaign, passionate about leveraging data to solve real-world problems. With a strong foundation in statistical modeling, machine learning, and data visualization, I'm actively seeking data science internship opportunities where I can apply my analytical skills and continue learning.</p>
                 
-                <p>My academic journey has equipped me with hands-on experience in building predictive models, conducting exploratory data analysis, and deriving actionable insights from complex datasets. I'm particularly interested in applying statistical methods and machine learning techniques to domains like healthcare, sports analytics, and consumer behavior.</p>
+                <p>My academic journey has equipped me with hands-on experience in building predictive models, conducting exploratory data analysis, and deriving actionable insights from complex datasets. I'm particularly interested in applying statistical methods and machine learning techniques to domains like sports analytics, manufacturing optimization, and agricultural technology.</p>
                 
-                <p>As an active member of the Illinois Data Science Club and NeuroTech Club, I'm constantly expanding my knowledge and collaborating with peers on innovative projects. I'm eager to contribute to a forward-thinking team while gaining practical industry experience.</p>
-
+                <p>As a Project Lead at the Illinois Data Science Club and member of NeuroTech Club, I'm constantly expanding my knowledge and collaborating with peers on innovative projects. I'm eager to contribute to a forward-thinking team while gaining practical industry experience.</p>
                 <div class="education-box">
                     <h3>University of Illinois Urbana-Champaign</h3>
                     <div class="education-details">
                         <span><strong>B.S. in Statistics</strong> | Minors: Computer Science, Data Science</span>
-                        <span><strong>GPA:</strong> 3.8/4.0</span>
                         <span><strong>Expected:</strong> May 2027</span>
                     </div>
                     <div class="coursework">
-                        <strong>Relevant Coursework:</strong> Statistical Modeling, Modeling and Learning in Data Science, Database Systems, Intro to Data Mining, Abstract Linear Algebra, Statistical Programming Methods
+                        <strong>Relevant Coursework:</strong> Statistical Modeling, Machine Learning, Modeling and Learning in Data Science, Stochastic Processes, Database Systems, Intro to Data Mining, Abstract Linear Algebra, Data Ethics, Statistical Programming Methods
                     </div>
-                    <div style="margin-top: 1rem;">
-                        <strong style="color: #1e3a8a;">Organizations:</strong> Illinois Data Science Club, NeuroTech Club
+                </div>
+            </div>
+        </section>
+    
+        <section id="experience">
+            <h2>Experience</h2>
+            <div class="experience-section">
+                <div class="experience-card" style="margin-bottom: 2rem;">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Data & Web Solutions Developer (Project Based)</h3>
+                            <p style="color: #64748b;">AGWISE | Remote</p>
+                        </div>
+                        <div class="experience-date">Sep 2025 – Present</div>
+                    </div>
+                    <ul>
+                        <li>Used multiple LLMs and automated queries to identify and extract third-party research, lab, field, and testimonial documents for agricultural biological companies</li>
+                        <li>Trained and deployed an NLP-based sentiment analysis pipeline to label outcomes and drive citation-based company rankings</li>
+                    </ul>
+                </div>
+                <div class="experience-card" style="margin-bottom: 2rem;">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Data Challenge Participant</h3>
+                            <p style="color: #64748b;">Sandia National Laboratories | Champaign, IL</p>
+                        </div>
+                        <div class="experience-date">Nov 2025</div>
+                    </div>
+                    <ul>
+                        <li>Analyzed real pre-production manufacturing data for Sandia using statistical tests and regression to identify drivers of scrap rate</li>
+                        <li>Built and evaluated a logistic model (F1 = 0.93) to quantify effects of powder type, layout, artifacts, and location</li>
+                        <li>Delivered recommendations showing optimal build conditions to reduce scrap and support Sandia's internal analysis</li>
+                    </ul>
+                </div>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Assistant Tutor</h3>
+                            <p style="color: #64748b;">University of Illinois Urbana-Champaign | Champaign, IL</p>
+                        </div>
+                        <div class="experience-date">Jan 2024 – May 2025</div>
+                    </div>
+                    <ul>
+                        <li>Delivered Java programming lessons, simplifying complex concepts for students with diverse technical backgrounds</li>
+                        <li>Collaborated with professors, tutors, and students to enhance communication across technical and non-technical audiences</li>
+                        <li>Managed online platforms, facilitated peer programming sessions, and supervised a four-week machine project</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="extracurricular">
+            <h2>Leadership & Involvement</h2>
+            <div class="experience-section">
+                <div class="experience-card" style="margin-bottom: 2rem;">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Project Lead</h3>
+                            <p style="color: #64748b;">Illinois Data Science Club (iDSC) | UIUC</p>
+                        </div>
+                        <div class="experience-date">Spring 2026 – Present</div>
+                    </div>
+                    <ul>
+                        <li>Leading and mentoring 6-7 project teams in end-to-end data science initiatives, from idea generation to final presentation</li>
+                        <li>Providing technical guidance on machine learning methodologies, data analysis techniques, and best practices</li>
+                        <li>Overseeing project timelines, facilitating team collaboration, and ensuring deliverable quality across multiple concurrent projects</li>
+                        <li>Leveraging experience from winning 1st place in Data Dive competition to mentor teams on competition strategy and presentation skills</li>
+                    </ul>
+                </div>
+                <div class="experience-card" style="margin-bottom: 2rem;">
+                    <div class="experience-header">
+                        <div>
+                            <h3>Member & Data Dive Competition Winner</h3>
+                            <p style="color: #64748b;">Illinois Data Science Club (iDSC) | UIUC</p>
+                        </div>
+                        <div class="experience-date">Fall 2025</div>
+                    </div>
+                    <ul>
+                        <li>Won 1st place among 50 teams in the 8-week Data Dive competition, predicting MLB player WAR using PCA and Gradient Boosting</li>
+                        <li>Presented project findings to panel of academic and industry judges, demonstrating strong communication and technical skills</li>
+                        <li>Collaborated with club members on data science projects and participated in technical workshops</li>
+                        <li>Engaged in peer learning sessions focused on machine learning, statistical modeling, and data visualization</li>
+                    </ul>
+                </div>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <div>
+                            <h3>General Member</h3>
+                            <p style="color: #64748b;">NeuroTech Club | UIUC</p>
+                        </div>
+                        <div class="experience-date">Fall 2025 – Present</div>
+                    </div>
+                    <ul>
+                        <li>Exploring the intersection of neuroscience and technology through hands-on projects and workshops</li>
+                        <li>Learning about brain-computer interfaces, neural data analysis, and applications of machine learning in neuroscience</li>
+                        <li>Collaborating with interdisciplinary team members from computer science, neuroscience, and engineering backgrounds</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>MLB Player Value Prediction</h3>
+                        <div class="project-metrics">🏆 1st Place - UIUC iDSC Data Dive | 50 Teams</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Led an end-to-end data science project predicting MLB player WAR (Wins Above Replacement) using advanced machine learning techniques, winning 1st place in a competitive 8-week challenge.</p>
+                        
+                        <strong style="color: #1e3a8a;">Key Achievements:</strong>
+                        <ul>
+                            <li>Won 1st place at UIUC Illinois Data Science Club's Data Dive competition, competing against 50 teams over 8 weeks</li>
+                            <li>Led complete project lifecycle from problem formulation and data collection to model evaluation and presentation</li>
+                            <li>Applied Principal Component Analysis (PCA) for dimensionality reduction, identifying key performance indicators from complex baseball statistics</li>
+                            <li>Implemented Gradient Boosting model optimized for both predictive accuracy and interpretability, enabling actionable insights for team management</li>
+                            <li>Presented results to panel of academic and industry judges, effectively communicating technical methodology and business value</li>
+                            <li>Emphasized model interpretability to provide clear explanations of which player attributes drive value predictions</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">PCA</span>
+                            <span class="tech-badge">Gradient Boosting</span>
+                            <span class="tech-badge">Scikit-learn</span>
+                            <span class="tech-badge">Sports Analytics</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Fourth-Down Decision Modeling</h3>
+                        <div class="project-metrics">🏈 AUC: 0.68 | NFL Analytics</div>
+                    </div>
+                    <div class="project-content">
+                        <p>Built predictive models for fourth-down conversion success using NFL play data, comparing neural networks and logistic regression to evaluate model complexity trade-offs.</p>
+                        
+                        <strong style="color: #1e3a8a;">Key Achievements:</strong>
+                        <ul>
+                            <li>Developed comparable models achieving AUC ~0.68 using both neural networks and logistic regression</li>
+                            <li>Analyzed real-world NFL play-by-play data to identify factors influencing fourth-down conversion success</li>
+                            <li>Conducted comprehensive model comparison, finding limited performance gains from increased complexity on noisy real-world data</li>
+                            <li>Demonstrated practical understanding of model selection trade-offs: interpretability vs. complexity</li>
+                            <li>Applied insights relevant to NFL coaching decisions and game strategy optimization</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Neural Networks</span>
+                            <span class="tech-badge">Logistic Regression</span>
+                            <span class="tech-badge">PyTorch</span>
+                            <span class="tech-badge">NFL Data</span>
+                        </div>
+                        <a href="#" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Student Depression Risk Prediction</h3>
+                        <div class="project-metrics">🎯 AUC: 0.936 | Team Collaboration</div>
+                    </div>
+                    <div class="project-content">
+                        <p>A machine learning project focused on mental health risk assessment for students, combining statistical analysis with predictive modeling to identify at-risk individuals.</p>
+                        
+                        <strong style="color: #1e3a8a;">Key Achievements:</strong>
+                        <ul>
+                            <li>Achieved exceptional model performance with AUC of 0.936, indicating strong discriminative ability between risk categories</li>
+                            <li>Performed comprehensive feature engineering on student survey data, transforming raw responses into meaningful predictors including sleep patterns, financial stress indicators, and academic pressure metrics</li>
+                            <li>Conducted in-depth coefficient analysis to identify the most significant risk factors, providing actionable insights for intervention strategies</li>
+                            <li>Collaborated effectively in a team of four, coordinating data preprocessing, model training, and validation tasks</li>
+                            <li>Designed model with real-world application potential for school counseling services and student support programs</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Scikit-learn</span>
+                            <span class="tech-badge">Logistic Regression</span>
+                            <span class="tech-badge">Pandas</span>
+                            <span class="tech-badge">Feature Engineering</span>
+                        </div>
+                        <a href="https://github.com/SahilDSangani/Student-depression-detection" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Real-Time MLB Pitch Classification</h3>
+                        <div class="project-metrics">⚾ 98.6% Accuracy | Sports Analytics</div>
+                    </div>
+                    <div class="project-content">
+                        <p>An advanced sports analytics project that leverages Statcast data to classify baseball pitches in real-time, demonstrating the intersection of machine learning and sports technology.</p>
+                        
+                        <strong style="color: #1e3a8a;">Key Achievements:</strong>
+                        <ul>
+                            <li>Developed highly accurate pitch classification model achieving 98.6% accuracy using K-Nearest Neighbors algorithm on Kevin Gausman's Statcast data</li>
+                            <li>Engineered sophisticated features including release speed, spin rate (rpm), horizontal and vertical movement, and release point coordinates to capture pitch characteristics</li>
+                            <li>Created comprehensive data visualizations using Seaborn to demonstrate pitch separability and model decision boundaries, enhancing interpretability for baseball analysts</li>
+                            <li>Built modular, scalable framework that can be adapted for any MLB pitcher by simply substituting the dataset, making it practical for broadcast integration</li>
+                            <li>Optimized hyperparameters through cross-validation to ensure model generalization across different game situations</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">K-Nearest Neighbors</span>
+                            <span class="tech-badge">Seaborn</span>
+                            <span class="tech-badge">Statcast API</span>
+                            <span class="tech-badge">Sports Analytics</span>
+                        </div>
+                        <a href="https://github.com/SahilDSangani/mlb-pitch-classification" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Tumor Size Prediction and Lifestyle Impact Modeling</h3>
+                        <div class="project-metrics">📊 R² = 0.68 | Statistical Modeling in R</div>
+                    </div>
+                    <div class="project-content">   
+                        <p>A data-driven analysis exploring how lifestyle and demographic factors influence tumor size using regression and ANOVA modeling in R.</p>
+                        
+                        <strong style="color: #1e3a8a;">Key Achievements:</strong>
+                        <ul>
+                            <li>Built multiple linear regression and two-way ANOVA models to analyze relationships between lifestyle factors and tumor size</li>
+                            <li>Achieved R² = 0.68, explaining 68% of tumor size variability through behavioral and demographic predictors</li>
+                            <li>Designed a dynamic, templatized R Markdown pipeline that automatically updates analyses and visualizations when new datasets or variables are used</li>
+                            <li>Created interactive visualizations with ggplot2 to highlight main and interaction effects among predictors</li>
+                            <li>Simulated lifestyle-change scenarios to assess predicted health improvements</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-badge">R</span>
+                            <span class="tech-badge">R Markdown</span>
+                            <span class="tech-badge">Linear Regression</span>
+                            <span class="tech-badge">ANOVA</span>
+                            <span class="tech-badge">ggplot2</span>
+                        </div>
+                        <a href="https://github.com/SahilDSangani/tumor-size-modeling" class="btn">View Project</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Exploratory Data & Regression Projects</h3>
+                        <div class="project-metrics">📊 R² = 0.83 | Multi-Domain Analysis</div>
+                    </div>
+                    <div class="project-content">
+                        <p>A collection of exploratory data analysis and regression modeling projects across different domains, showcasing versatility in data science techniques and problem-solving approaches.</p>
+                        
+                        <strong style="color: #1e3a8a;">Key Achievements:</strong>
+                        <ul>
+                            <li>Analyzed college tuition dataset to understand pricing patterns, exploring relationships between institution characteristics, location, and tuition costs</li>
+                            <li>Conducted used car price analysis, investigating how factors like mileage, age, brand, and features influence market value</li>
+                            <li>Created publication-quality visualizations using Matplotlib and Seaborn, effectively communicating insights</li>
+                            <li>Built interpretable linear regression models with strong predictive performance (R² = 0.83)</li>
+                            <li>Practiced comprehensive data preprocessing including handling missing values, outlier detection, and feature scaling</li>
+                        </ul>
+                        <div class="project-tech">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Pandas</span>
+                            <span class="tech-badge">Matplotlib</span>
+                            <span class="tech-badge">Linear Regression</span>
+                            <span class="tech-badge">EDA</span>
+                        </div>
+                        <a href="https://github.com/SahilDSangani/mini-data-projects" class="btn">View Project</a>
                     </div>
                 </div>
             </div>
@@ -615,7 +351,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="skill-card">
                         <div class="skill-header">
                             <div class="skill-title">
@@ -647,7 +382,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="skill-card">
                         <div class="skill-header">
                             <div class="skill-title">
@@ -677,7 +411,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="skill-card">
                         <div class="skill-header">
                             <div class="skill-title">
@@ -706,7 +439,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="skill-card">
                         <div class="skill-header">
                             <div class="skill-title">
@@ -735,9 +467,9 @@
                             </div>
                         </div>
                     </div>
-
+                </div>
                 <h3 class="skill-category-header" style="margin-top: 3rem;">🛠️ Tools & Technologies</h3>
-
+                <div class="skills-grid">
                     <div class="skill-card">
                         <div class="skill-header">
                             <div class="skill-title">
@@ -751,7 +483,7 @@
                                 <p>Currently preparing to learn SAS as part of upcoming coursework next semester. Eager to expand my statistical programming toolkit with industry-standard software.</p>
                                 
                                 <div class="learning-path">
-                                    <strong>Learning Path:</strong> Upcoming Coursework (Spring 2025)
+                                    <strong>Learning Path:</strong> Upcoming Coursework (Spring 2026)
                                 </div>
                                 
                                 <p><strong>Anticipated Focus:</strong> Statistical analysis, data management, and reporting using SAS programming. Looking forward to applying SAS in real-world data analytics scenarios and adding enterprise-level statistical software to my skill set.</p>
@@ -764,8 +496,6 @@
                             </div>
                         </div>
                     </div>
-
-                <div class="skills-grid">
                     <div class="skill-card">
                         <div class="skill-header">
                             <div class="skill-title">
@@ -792,7 +522,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="skill-card">
                         <div class="skill-header">
                             <div class="skill-title">
@@ -824,190 +553,22 @@
                         </div>
                     </div>
                 </div>
-
                 <p style="text-align: center; color: #64748b; margin-top: 2rem; font-style: italic;">
                     Click on any skill card to learn more about my experience and learning journey!
                 </p>
             </div>
         </section>
 
-        <section id="projects">
-            <h2>Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Student Depression Risk Prediction</h3>
-                        <div class="project-metrics">🎯 AUC: 0.936 | Team Collaboration</div>
-                    </div>
-                    <div class="project-content">
-                        <p>A machine learning project focused on mental health risk assessment for students, combining statistical analysis with predictive modeling to identify at-risk individuals.</p>
-                        
-                        <strong style="color: #1e3a8a;">Key Achievements:</strong>
-                        <ul>
-                            <li>Achieved exceptional model performance with AUC of 0.936, indicating strong discriminative ability between risk categories</li>
-                            <li>Performed comprehensive feature engineering on student survey data, transforming raw responses into meaningful predictors including sleep patterns, financial stress indicators, and academic pressure metrics</li>
-                            <li>Conducted in-depth coefficient analysis to identify the most significant risk factors, providing actionable insights for intervention strategies</li>
-                            <li>Collaborated effectively in a team of four, coordinating data preprocessing, model training, and validation tasks</li>
-                            <li>Designed model with real-world application potential for school counseling services and student support programs</li>
-                        </ul>
-                        <div class="project-tech">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">Scikit-learn</span>
-                            <span class="tech-badge">Logistic Regression</span>
-                            <span class="tech-badge">Pandas</span>
-                            <span class="tech-badge">Feature Engineering</span>
-                        </div>
-                        <a href="https://github.com/SahilDSangani/Student-depression-detection" class="btn">View Project</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Real-Time MLB Pitch Classification</h3>
-                        <div class="project-metrics">⚾ 98.6% Accuracy | Sports Analytics</div>
-                    </div>
-                    <div class="project-content">
-                        <p>An advanced sports analytics project that leverages Statcast data to classify baseball pitches in real-time, demonstrating the intersection of machine learning and sports technology.</p>
-                        
-                        <strong style="color: #1e3a8a;">Key Achievements:</strong>
-                        <ul>
-                            <li>Developed highly accurate pitch classification model achieving 98.6% accuracy using K-Nearest Neighbors algorithm on Kevin Gausman's Statcast data</li>
-                            <li>Engineered sophisticated features including release speed, spin rate (rpm), horizontal and vertical movement, and release point coordinates to capture pitch characteristics</li>
-                            <li>Created comprehensive data visualizations using Seaborn to demonstrate pitch separability and model decision boundaries, enhancing interpretability for baseball analysts</li>
-                            <li>Built modular, scalable framework that can be adapted for any MLB pitcher by simply substituting the dataset, making it practical for broadcast integration</li>
-                            <li>Optimized hyperparameters through cross-validation to ensure model generalization across different game situations</li>
-                        </ul>
-                        <div class="project-tech">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">K-Nearest Neighbors</span>
-                            <span class="tech-badge">Seaborn</span>
-                            <span class="tech-badge">Statcast API</span>
-                            <span class="tech-badge">Sports Analytics</span>
-                        </div>
-                        <a href="https://github.com/SahilDSangani/mlb-pitch-classification" class="btn">View Project</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Tumor Size Prediction and Lifestyle Impact Modeling</h3>
-                        <div class="project-metrics">💳 R² = 0.68 | Statistical Modeling in R</div>
-                    </div>
-                    <div class="project-content">   
-                        <p>A data-driven analysis exploring how lifestyle and demographic factors influence tumor size using regression and ANOVA modeling in R. The project demonstrates the impact of behaviors such as smoking, alcohol consumption, and physical activity on cancer outcomes.</p>
-                        
-                        <strong style="color: #1e3a8a;">Key Achievements:</strong>
-                        <ul>
-                            <li>Built multiple linear regression and two-way ANOVA models to analyze relationships between lifestyle factors and tumor size</li>
-                            <li>Achieved <strong>R² = 0.68</strong>, explaining 68% of tumor size variability through behavioral and demographic predictors</li>
-                            <li>Designed a <strong>dynamic, templatized R Markdown pipeline</strong> that automatically updates analyses and visualizations when new datasets or variables are used</li>
-                            <li>Created interactive visualizations with <strong>ggplot2</strong> to highlight main and interaction effects among predictors</li>
-                            <li>Simulated lifestyle-change scenarios (e.g., quitting smoking, increased activity) to assess predicted health improvements</li>
-                        </ul>
-                        <div class="project-tech">
-                            <span class="tech-badge">R</span>
-                            <span class="tech-badge">R Markdown</span>
-                            <span class="tech-badge">Linear Regression</span>
-                            <span class="tech-badge">ANOVA</span>
-                            <span class="tech-badge">ggplot2</span>
-                        </div>
-                        <a href="https://github.com/SahilDSangani/tumor-size-modeling" class="btn">View Project</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Consumer Spending Predictions</h3>
-                        <div class="project-metrics">💳 R² = 0.76 | UIUC Datathon Winner</div>
-                    </div>
-                    <div class="project-content">
-                        <p>A competitive datathon project analyzing real-world financial data to predict customer spending patterns, providing insights into consumer behavior and credit card usage.</p>
-                        
-                        <strong style="color: #1e3a8a;">Key Achievements:</strong>
-                        <ul>
-                            <li>Predicted Q4 spending for Synchrony Financial customers using historical transaction data and customer demographics</li>
-                            <li>Implemented LASSO regression model achieving R² score of 0.76, balancing prediction accuracy with model interpretability through L1 regularization</li>
-                            <li>Performed extensive exploratory data analysis to uncover spending patterns, seasonal trends, and customer segmentation insights</li>
-                            <li>Collaborated in a competitive team environment, dividing tasks efficiently and integrating different modeling approaches</li>
-                            <li>Gained practical experience working with real banking data, understanding credit card spending behaviors and financial industry metrics</li>
-                            <li>Presented findings to industry professionals, demonstrating ability to communicate technical results to business stakeholders</li>
-                        </ul>
-                        <div class="project-tech">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">LASSO Regression</span>
-                            <span class="tech-badge">Jupyter Notebook</span>
-                            <span class="tech-badge">Financial Data</span>
-                            <span class="tech-badge">EDA</span>
-                        </div>
-                        <a href="#" class="btn">View Project</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3>Exploratory Data & Regression Projects</h3>
-                        <div class="project-metrics">📊 R² = 0.83 | Multi-Domain Analysis</div>
-                    </div>
-                    <div class="project-content">
-                        <p>A collection of exploratory data analysis and regression modeling projects across different domains, showcasing versatility in data science techniques and problem-solving approaches.</p>
-                        
-                        <strong style="color: #1e3a8a;">Key Achievements:</strong>
-                        <ul>
-                            <li>Analyzed college tuition dataset to understand pricing patterns, exploring relationships between institution characteristics, location, and tuition costs for in-state vs. out-of-state students</li>
-                            <li>Conducted used car price analysis, investigating how factors like mileage, age, brand, and features influence market value</li>
-                            <li>Created publication-quality visualizations using Matplotlib and Seaborn, effectively communicating insights through scatter plots, distribution plots, and correlation heatmaps</li>
-                            <li>Built interpretable linear regression models with strong predictive performance (R² = 0.83), focusing on coefficient interpretation and statistical significance</li>
-                            <li>Practiced comprehensive data preprocessing including handling missing values, outlier detection, feature scaling, and categorical encoding</li>
-                            <li>Emphasized model evaluation using multiple metrics: R², RMSE, MAE, and residual analysis to ensure model assumptions were met</li>
-                        </ul>
-                        <div class="project-tech">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">Pandas</span>
-                            <span class="tech-badge">Matplotlib</span>
-                            <span class="tech-badge">Linear Regression</span>
-                            <span class="tech-badge">EDA</span>
-                        </div>
-                        <a href="https://github.com/SahilDSangani/mini-data-projects" class="btn">View Project</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience">
-            <h2>Experience</h2>
-            <div class="experience-section">
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div>
-                            <h3>Assistant Tutor</h3>
-                            <p style="color: #64748b;">University of Illinois Urbana-Champaign | Champaign, IL</p>
-                        </div>
-                        <div class="experience-date">Jan 2024 – May 2025</div>
-                    </div>
-                    <ul>
-                        <li>Delivered Java programming lessons, simplifying complex concepts for students with diverse technical backgrounds</li>
-                        <li>Collaborated with professors, tutors, and students to enhance communication across technical and non-technical audiences</li>
-                        <li>Managed online platforms, facilitated peer programming sessions, and supervised a four-week machine project</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
     </div>
-
     <footer>
         <div class="container">
             <p>&copy; 2025 Sahil Sangani. All rights reserved.</p>
             <p style="margin-top: 0.5rem; font-size: 0.9rem;">US Citizen | Chicago, IL | Willing to Relocate Nationwide</p>
+        </div>
+    </footer>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const cards = document.querySelectorAll(".skill-card");
+    <!-- Load JS -->
+    <script src="assets/script.js"></script>
 
-  cards.forEach(card => {
-    card.addEventListener("click", () => {
-      cards.forEach(c => c !== card && c.classList.remove("expanded"));
-      card.classList.toggle("expanded");
-    });
-  });
-});
-</script>
+</body>
+</html>
