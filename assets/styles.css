@@ -23,7 +23,8 @@ body {
     padding: 0 20px;
 }
 header {
-    background: linear-gradient(135deg, #13294B 0%, #1e3a8a 100%);
+    position: relative;
+    background: url("assets/ChatGPT Image Feb 12, 2026 at 01_07_19 AM.png") center/cover no-repeat;
     color: white;
     padding: 4rem 0;
     text-align: center;
