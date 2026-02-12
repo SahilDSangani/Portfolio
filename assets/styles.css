@@ -22,6 +22,17 @@ body {
     margin: 0 auto;
     padding: 0 20px;
 }
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);  /* darkness level */
+}
+
+header .container {
+    position: relative;
+    z-index: 1;
+}
 header {
     position: relative;
     background: url("assets/ChatGPT Image Feb 12, 2026 at 01_07_19 AM.png") center/cover no-repeat;
